@@ -1,0 +1,12 @@
+
+#PREPROCESS_PATH=/path/to/moses/tokenizer
+#TRUECASER_PATH=/path/to/moses/recaser
+#BPETOOLS=/path/to/BPE
+
+
+PATH_CURRENT_SCRIPT=$(dirname "$0")
+
+PREPROCESS_PATH=$PATH_CURRENT_SCRIPT/scripts
+TRUECASER_PATH=$PATH_CURRENT_SCRIPT/scripts
+BPETOOLS=$PATH_CURRENT_SCRIPT/scripts/subword-nmt/subword_nmt
+
