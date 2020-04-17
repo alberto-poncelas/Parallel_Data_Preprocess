@@ -1,18 +1,30 @@
 #!/bin/bash
 
 
-
-
 #Load config
 PATH_CURRENT_SCRIPT=$(dirname "$0")
 source $PATH_CURRENT_SCRIPT/config
 
+
+display_usage() { 
+	echo "Usage: bash tokenize_truecase.sh LANGS" 
+	echo "* LANGS: Comma-separated list of languages"
+} 
+
+if [ "$#" -ne 1 ]
+	then
+	display_usage;
+	exit 0
+fi
 
 
 
 
 langs=$1
 LANG_ARRAY=($(echo $langs | sed 's/,/ /g')) 
+
+
+
 
 ##tokenize
 for LANG in "${LANG_ARRAY[@]}"
@@ -24,10 +36,6 @@ do
 		$PREPROCESS_PATH/tokenizer.perl -l $LANG < $f > $f".tokenized"
 	done
 done
-
-
-
-
 
 
 ##learn truecase
@@ -47,8 +55,6 @@ do
 	fi
 done
 rm -r $tmp_dir
-
-
 
 
 

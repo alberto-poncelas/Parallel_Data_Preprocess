@@ -8,6 +8,18 @@ source $PATH_CURRENT_SCRIPT/config
 
 
 
+display_usage() { 
+	echo "Usage: bash tokenize_truecase.sh LANGS NUMOP" 
+	echo "* LANGS: Comma-separated list of languages (if several languages are provided then join BPE is learned)"
+	echo "* NUMOP: Num of BPE operations"
+} 
+
+if [ "$#" -ne 2 ]  
+	then
+	display_usage;
+	exit 0
+fi
+
 
 
 # Usage: bash BPE.sh language_list  num_operations
